@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 import { login } from '../actions';
 
@@ -35,24 +36,31 @@ class Login extends React.Component {
     render() {
         return(
             <div>
-                <form onSubmit={this.login}>
-                    <input
+                <Form onSubmit={this.login}>
+                    <FormGroup row>
+                        <Label for='username'>Username: </Label>
+                    <Input
                     type='text'
                     name='username'
-                    placeholder='Username'
                     value={this.state.credentials.username}
                     onChange={this.handleChange}
                     />
-                    <input
+                    </FormGroup>
+
+                    <FormGroup row>
+                        <Label for='password'>Password: </Label>
+                    <Input
                     type='text'
                     name='password'
-                    placeholder='Password'
                     value={this.state.credentials.password}
                     onChange={this.handleChange}
                     />
-                    {/* <button>
-                    </button> */}
-                </form>
+                    </FormGroup>
+
+                <Button color='primary' onClick={this.login}>Login
+                    </Button>
+                </Form>
+
             </div>
         )
     }

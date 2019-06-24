@@ -10,10 +10,10 @@ function App() {
 
         <ul>
           <li>
-            <Link to='/login'></Link>
+            <Link to='/login'>Login</Link>
           </li>
           <li>
-            <Link to='/protected'>Protected Page</Link>
+            <Link to='/cities'>Cities</Link>
           </li>
         </ul>
         <Route path='/login' component={Login} />
