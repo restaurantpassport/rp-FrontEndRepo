@@ -13,6 +13,7 @@ class Cities extends React.Component {
 render() {
     return (
         <div>
+            <h2>CITIES!!!</h2>
             {this.props.fetchingData && (
                 <div className='keySpinner'>
                     <Spinner style={{ width: '3rem', height: '3rem' }} />{' '}
