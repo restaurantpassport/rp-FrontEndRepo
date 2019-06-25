@@ -57,26 +57,26 @@ const reducer = (state = initialState, action) => {
                 cities: [],
                 error: action.payload
             }
-            case FETCH_RESTAURANTS_START:
-                    return {
-                        ...state,
-                        error: '',
-                        fetchingData: true
-                    }
-                case FETCH_RESTAURANTS_SUCCESS:
-                    return {
-                        ...state,
-                        error: '',
-                        restaurants: action.payload.restaurants,
-                        cityFromRestaurant: action.payload.name,
-                        fetchingData: false
-                    }
-                case FETCH_RESTAURANTS_FAILURE:
-                    return {
-                        ...state,
-                        fetchingData: false,
-                        error: action.payload
-                    }
+        case FETCH_RESTAURANTS_START:
+            return {
+                ...state,
+                error: '',
+                fetchingData: true
+            }
+        case FETCH_RESTAURANTS_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                restaurants: action.payload.restaurants,
+                cityFromRestaurant: action.payload.name,
+                fetchingData: false
+            }
+        case FETCH_RESTAURANTS_FAILURE:
+            return {
+                ...state,
+                fetchingData: false,
+                error: action.payload
+            }
         default:
             return state;
     }

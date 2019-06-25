@@ -49,8 +49,8 @@ export const getRestaurants = () => dispatch => {
         dispatch({ type: FETCH_RESTAURANTS_SUCCESS, payload: res.data })
     })
     .catch(err => {
-        console.log(err.response);
+        console.log('error', err.response);
         dispatch({ type: FETCH_RESTAURANTS_FAILURE, 
-            payload: err.response.data.error })
+            payload: err.response })
     })
 }

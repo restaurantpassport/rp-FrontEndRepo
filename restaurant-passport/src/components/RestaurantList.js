@@ -15,7 +15,7 @@ render() {
     return (
         <div>
             <h1>{this.props.cityFromRestaurant}</h1>
-            {/* <h1>{this.props.restaurants[{restName}]}</h1> */}
+            <h1>{this.props.restaurants}</h1>
             {/* <h2>CITIES!!!</h2> */}
             {/* {this.props.fetchingData && (
                 <div className='keySpinner'>
@@ -24,11 +24,13 @@ render() {
                     </div>
             )} */}
             
-                {/* {this.props.restaurants.map((rest,key) => 
-                    (<Restaurant  rest={rest.restaurants.restName} key={key} />
-                        
-                    )
-                )}  */}
+            {/* <div>
+                {this.props.resturants.map(city => (
+                    <div key={city.restID}>
+                        <h2>{city.restName}</h2>
+                        </div>
+                ))}
+            </div> */}
                 
             
         </div>
@@ -36,9 +38,9 @@ render() {
 }
 }
 
-const mapStateToProps = ({ error, resturants, fetchingData, cityFromRestaurant }) => ({
+const mapStateToProps = ({ error, restaurants, fetchingData, cityFromRestaurant }) => ({
     error,
-    resturants,
+    restaurants,
     fetchingData,
     cityFromRestaurant
 });
