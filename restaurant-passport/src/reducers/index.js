@@ -1,4 +1,5 @@
-import { LOGIN_START,
+import { 
+LOGIN_START,
 LOGIN_SUCCESS,
 LOGIN_FAILURE,
 FETCH_DATA_START,
@@ -6,9 +7,13 @@ FETCH_DATA_SUCCESS,
 FETCH_DATA_FAILURE,
 FETCH_RESTAURANTS_START,
 FETCH_RESTAURANTS_SUCCESS,
-FETCH_RESTAURANTS_FAILURE } from '../actions';
+FETCH_RESTAURANTS_FAILURE,
+REGISTER_START,
+REGISTER_SUCCESS,
+REGISTER_FAILURE } from '../actions';
 
 const initialState = {
+    registering: false,
     error: '',
     cities: [],
     loggingIn: false,
@@ -17,8 +22,24 @@ const initialState = {
     cityFromRestaurant: ''
 }
 
+
 const reducer = (state = initialState, action) => {
     switch(action.type) {
+        case REGISTER_START:
+            return {
+                ...state,
+                registering: true
+            }
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                registering: false
+            }
+        case REGISTER_FAILURE:
+            return {
+                ...state,
+                registering: false
+            }
         case LOGIN_START:
             return {
                 ...state,

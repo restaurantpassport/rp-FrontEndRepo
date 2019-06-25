@@ -16,6 +16,23 @@ export const login = creds => dispatch => {
     .catch(err => console.log(err.response))
 }
 
+export const REGISTER_START = 'REGISTER_START'
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
+export const REGISTER_FAILURE = 'REGISTER_FAILURE'
+
+export const register = userInfo => dispatch => {
+    dispatch({ type: REGISTER_START });
+    axios
+    .post('https://rp-backend-web19.herokuapp.com/users', userInfo)
+    .then(res => {
+        console.log('register', res.data);
+        dispatch({ type: REGISTER_SUCCESS })
+    })
+    .catch(err => {
+        console.log(err)
+    })
+}
+
 export const FETCH_DATA_START = 'FETCH_DATA_START'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE'
