@@ -17,6 +17,7 @@ const initialState = {
     error: '',
     cities: [],
     loggingIn: false,
+    token: localStorage.getItem('token'),
     fetchingData: false,
     restaurants: [],
     cityFromRestaurant: ''
@@ -43,14 +44,13 @@ const reducer = (state = initialState, action) => {
         case LOGIN_START:
             return {
                 ...state,
-                error: '',
                 loggingIn: true
             };
         case LOGIN_SUCCESS:
             return {
                 ...state,
-                error: '',
-                loggingIn: false
+                loggingIn: false,
+                token: action.payload
             };
         case LOGIN_FAILURE:
             return {
