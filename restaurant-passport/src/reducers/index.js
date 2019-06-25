@@ -3,13 +3,18 @@ LOGIN_SUCCESS,
 LOGIN_FAILURE,
 FETCH_DATA_START,
 FETCH_DATA_SUCCESS,
-FETCH_DATA_FAILURE } from '../actions';
+FETCH_DATA_FAILURE,
+FETCH_RESTAURANTS_START,
+FETCH_RESTAURANTS_SUCCESS,
+FETCH_RESTAURANTS_FAILURE } from '../actions';
 
 const initialState = {
     error: '',
     cities: [],
     loggingIn: false,
-    fetchingData: false
+    fetchingData: false,
+    restaurants: [],
+    cityFromRestaurant: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -51,8 +56,27 @@ const reducer = (state = initialState, action) => {
                 fetchingData: false,
                 cities: [],
                 error: action.payload
-
             }
+            case FETCH_RESTAURANTS_START:
+                    return {
+                        ...state,
+                        error: '',
+                        fetchingData: true
+                    }
+                case FETCH_RESTAURANTS_SUCCESS:
+                    return {
+                        ...state,
+                        error: '',
+                        restaurants: action.payload.restaurants,
+                        cityFromRestaurant: action.payload.name,
+                        fetchingData: false
+                    }
+                case FETCH_RESTAURANTS_FAILURE:
+                    return {
+                        ...state,
+                        fetchingData: false,
+                        error: action.payload
+                    }
         default:
             return state;
     }

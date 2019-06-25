@@ -36,7 +36,7 @@ class Login extends React.Component {
     render() {
         return(
             <div>
-                <Form inlineonSubmit={this.login}>
+                <Form onSubmit={this.login}>
                     <FormGroup >
                         <Label for='username'>Username: </Label>
                         <Col sm="12" md={{ size: 6, offset: 3 }}>

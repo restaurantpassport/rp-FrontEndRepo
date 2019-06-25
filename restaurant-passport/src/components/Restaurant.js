@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
 
 function Restauraunt(props) {
 
@@ -7,6 +6,8 @@ function Restauraunt(props) {
 
     return (
         <div className='restauraunt-wrapper'>
+
+            <h2>{props.restaurants.restaurants}</h2>
 
         </div>
     )
