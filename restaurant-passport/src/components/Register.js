@@ -13,6 +13,7 @@ class Register extends React.Component {
         }
     }
 
+
     handleChange = e => {
         this.setState({
             credentials: {
@@ -25,13 +26,7 @@ class Register extends React.Component {
     register = e => {
         e.preventDefault();
         this.props.register(this.state.credentials)
-        .then(res => {
-            if (res) {
-                this.props.history.push('/login');
-            } else {
-                return 'Error'
-            }
-        })
+        // .then(() => this.props.history.push("/login"));
     }
     
     render() {
@@ -87,8 +82,8 @@ class Register extends React.Component {
 }
 
     const mapStateToProps = state => ({
-        error: state.error,
-        loggingIn: state.loggingIn
+        // error: state.error,
+        registering: state.registering
     })
 
     export default connect(
