@@ -25,15 +25,3 @@ to = "/login"
     # must add the status code so that redirects will work. W
     status = 200
 
-
-[[redirects]]
-from = "/pokemonList"
-to = "/login"
-
-[[redirects]]
-from = "/login"
-to = "/"
-
-[[redirects]]
-from = "/signup"
-to = "/"

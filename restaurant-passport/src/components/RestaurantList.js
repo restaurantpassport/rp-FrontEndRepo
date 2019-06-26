@@ -26,7 +26,6 @@ render() {
             <h1>{this.props.cityFromRestaurant}</h1>
             
             {/* <h1>{this.props.restaurants}</h1> */}
-            {/* <h2>CITIES!!!</h2> */}
             {/* {this.props.fetchingData && (
                 <div className='keySpinner'>
                     <Spinner style={{ width: '3rem', height: '3rem' }} />{' '}
