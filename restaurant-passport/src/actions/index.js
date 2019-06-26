@@ -1,4 +1,7 @@
-import axios from 'axios';
+
+
+import signUpAxios from 'axios';
+import axios from '../Authentication/AxiosAuth';
 
 export const LOGIN_START = 'LOGIN_START'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -6,14 +9,11 @@ export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
-    axios
-    .post('https://rp-backend-web19.herokuapp.com/users/login', creds, {
-        headers: { Authorization: localStorage.getItem('token') }
-    })
+    return axios()
+    .post('https://rp-backend-web19.herokuapp.com/users/login', creds)
     .then(res => { console.log('token', res.data.token);
         localStorage.setItem('token', res.data.token);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data })
-        return true;
     })
     .catch(err => console.log(err.response))
 }
@@ -24,7 +24,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE'
 
 export const register = userInfo => dispatch => {
     dispatch({ type: REGISTER_START });
-    axios
+    signUpAxios
     .post('https://rp-backend-web19.herokuapp.com/users', userInfo)
     .then(res => {
         console.log('register', res.data);
@@ -41,7 +41,7 @@ export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE'
 
 export const getCities = () => dispatch => {
     dispatch({ type: FETCH_DATA_START });
-    axios
+    axios()
     .get('https://rp-backend-web19.herokuapp.com/cities')
     .then(res => {
         console.log('response', res.data);
@@ -60,7 +60,7 @@ export const FETCH_RESTAURANTS_FAILURE = 'FETCH_RESTAURANTS_FAILURE'
 
 export const getRestaurants = () => dispatch => {
     dispatch({ type: FETCH_RESTAURANTS_START });
-    axios
+    axios()
     .get('https://rp-backend-web19.herokuapp.com/cities/1/restaurants')
     .then(res => {
         console.log('data', res.data);
