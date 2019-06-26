@@ -96,6 +96,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 fetchingData: false,
+                restaurants: [],
+                cityFromRestaurant: '',
                 error: action.payload
             }
         default:

@@ -70,6 +70,6 @@ export const getRestaurants = () => dispatch => {
     .catch(err => {
         console.log('error', err.response);
         dispatch({ type: FETCH_RESTAURANTS_FAILURE, 
-            payload: err.response })
+            payload: err.response.data.error })
     })
 }
