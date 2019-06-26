@@ -13,7 +13,6 @@ class Register extends React.Component {
         }
     }
 
-
     handleChange = e => {
         this.setState({
             credentials: {
