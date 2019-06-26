@@ -24,18 +24,13 @@ class Login extends React.Component {
     login = e => {
         e.preventDefault();
         this.props.login(this.state.credentials)
-        // .then(res => {
-        //     if (res) {
-        //         this.props.history.push('/cities');
-        //     } else {
-        //         return 'Error'
-        //     }
-        // })
+        .then(() => this.props.history.push('/cities'));
     }
     
     render() {
         return(
             <div>
+                {this.props.error && <h3>{this.props.error}</h3>}
                 <Form onSubmit={this.login}>
                     <FormGroup >
                         <Label for='username'>Username: </Label>

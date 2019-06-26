@@ -1,16 +1,44 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-function Restauraunt(props) {
 
+import { getRestById } from '../actions';
 
+class Restaurant extends React.Component {
+    componentDidMount() {
+        this.props.getRestById()
+    };
 
+render() {
+    console.log('RestID props', this.props.restById);
     return (
-        <div className='restauraunt-wrapper'>
+        <div className='restaurant-wrapper'>
 
-            <h2>{props.restaurants.restaurants}</h2>
+            <div className='restaurants'>
+            <h1>{this.props.restById.name}</h1>
+            <h2>{this.props.restById.city}</h2>
+            <h2>{this.props.restById.address}</h2>
+            <p>{this.props.restById.description}</p>
+            </div>
 
+            <div className='restaurant-button'>
+            <button>Stamp my Portfolio</button>
+            </div>
+           
         </div>
     )
 }
+}
 
-export default Restauraunt;
+const mapStateToProps = ({ error, restById }) => ({
+    error,
+    restById
+});
+
+export default withRouter(
+    connect(
+        mapStateToProps,
+        { getRestById }
+    )(Restaurant)
+)

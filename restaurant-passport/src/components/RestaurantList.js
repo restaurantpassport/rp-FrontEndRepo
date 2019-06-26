@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 // import Restaurant from './Restaurant'
 // import { Spinner } from 'reactstrap';
 
@@ -24,16 +24,11 @@ render() {
     return (
         <div>
             <h1>{this.props.cityFromRestaurant}</h1>
-            
-            {/* <h1>{this.props.restaurants}</h1> */}
-            {/* {this.props.fetchingData && (
-                <div className='keySpinner'>
-                    <Spinner style={{ width: '3rem', height: '3rem' }} />{' '}
-                    <Spinner style={{ width: '3rem', height: '3rem' }} type="grow" />
-                    </div>
-            )} */}
 
+
+            <Link to={`/cities/restaurants/:id`}>
             <h2>{renObjData}</h2>
+            </Link>
             
         </div>
     )

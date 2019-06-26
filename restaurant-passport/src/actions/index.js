@@ -5,17 +5,20 @@ import axios from '../Authentication/AxiosAuth';
 
 export const LOGIN_START = 'LOGIN_START'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+// export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios()
+    // const user_id = localStorage.getItem(${userId})
     .post('https://rp-backend-web19.herokuapp.com/users/login', creds)
     .then(res => { console.log('token', res.data.token);
+        console.log('userId', res.data.userId);
         localStorage.setItem('token', res.data.token);
+        localStorage.setItem('userId', res.data.userId);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data })
     })
-    .catch(err => console.log(err.response))
+    // .catch(err => console.log(err.response))
 }
 
 export const REGISTER_START = 'REGISTER_START'
@@ -61,7 +64,7 @@ export const FETCH_RESTAURANTS_FAILURE = 'FETCH_RESTAURANTS_FAILURE'
 export const getRestaurants = () => dispatch => {
     dispatch({ type: FETCH_RESTAURANTS_START });
     axios()
-    .get('https://rp-backend-web19.herokuapp.com/cities/1/restaurants')
+    .get('https://rp-backend-web19.herokuapp.com/cities/:id/restaurants')
     .then(res => {
         console.log('data', res.data);
         console.log('restaurants', res.data.restaurants);
@@ -70,6 +73,25 @@ export const getRestaurants = () => dispatch => {
     .catch(err => {
         console.log('error', err.response);
         dispatch({ type: FETCH_RESTAURANTS_FAILURE, 
+            payload: err.response })
+    })
+}
+
+export const FETCH_REST_BYID_START = 'FETCH_REST_BYID_START'
+export const FETCH_REST_BYID_SUCCESS = 'FETCH_REST_BYID_SUCCESS'
+export const FETCH_REST_BYID_FAILURE = 'FETCH_REST_BYID_FAILURE'
+
+export const getRestById = () => dispatch => {
+    dispatch({ type: FETCH_REST_BYID_START });
+    axios()
+    .get('https://rp-backend-web19.herokuapp.com/cities/restaurants/:id')
+    .then(res => {
+        console.log('rest byId response', res.data);
+        dispatch({ type: FETCH_REST_BYID_SUCCESS, payload: res.data })
+    })
+    .catch(err => {
+        console.log(err.response);
+        dispatch({ type: FETCH_REST_BYID_FAILURE, 
             payload: err.response.data.error })
     })
 }

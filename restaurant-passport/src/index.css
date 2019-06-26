@@ -37,3 +37,9 @@ a {
   padding: 0 6px;
   color: seagreen;
 }
+
+.restaurant-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
