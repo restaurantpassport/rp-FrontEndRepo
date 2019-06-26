@@ -26,7 +26,7 @@ render() {
             <h1>{this.props.cityFromRestaurant}</h1>
 
 
-            <Link to={`/cities/restaurants`}>
+            <Link to={`/cities/restaurants/:id`}>
             <h2>{renObjData}</h2>
             </Link>
             

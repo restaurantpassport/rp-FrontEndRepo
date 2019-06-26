@@ -107,22 +107,22 @@ const reducer = (state = initialState, action) => {
                 cityFromRestaurant: '',
                 error: action.payload
             }
-            case FETCH_REST_BYID_START:
-                    return {
-                        ...state,
-                        error: '',
-                    }
-                case FETCH_REST_BYID_SUCCESS:
-                    return {
-                        ...state,
-                        error: '',
-                        restById: action.payload
-                    }
-                case FETCH_REST_BYID_FAILURE:
-                    return {
-                        ...state,
-                        error: action.payload
-                    }
+        case FETCH_REST_BYID_START:
+            return {
+                ...state,
+                error: '',
+            }
+        case FETCH_REST_BYID_SUCCESS:
+            return {
+                ...state,
+                error: '',
+                restById: action.payload
+            }
+        case FETCH_REST_BYID_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

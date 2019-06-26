@@ -10,6 +10,7 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const login = creds => dispatch => {
     dispatch({ type: LOGIN_START });
     return axios()
+    // const user_id = localStorage.getItem(${userId})
     .post('https://rp-backend-web19.herokuapp.com/users/login', creds)
     .then(res => { console.log('token', res.data.token);
         console.log('userId', res.data.userId);
@@ -83,7 +84,7 @@ export const FETCH_REST_BYID_FAILURE = 'FETCH_REST_BYID_FAILURE'
 export const getRestById = () => dispatch => {
     dispatch({ type: FETCH_REST_BYID_START });
     axios()
-    .get('https://rp-backend-web19.herokuapp.com/cities/restaurants/1')
+    .get('https://rp-backend-web19.herokuapp.com/cities/restaurants/:id')
     .then(res => {
         console.log('rest byId response', res.data);
         dispatch({ type: FETCH_REST_BYID_SUCCESS, payload: res.data })

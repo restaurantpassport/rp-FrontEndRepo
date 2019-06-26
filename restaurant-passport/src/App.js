@@ -6,12 +6,14 @@ import Cities from './components/Cities';
 import RestaurantList from './components/RestaurantList';
 import Register from './components/Register';
 import Restaurant from './components/Restaurant';
+// import { getRestaurants } from './actions';
 import { Navbar, NavbarBrand } from 'reactstrap';
-
+// console.log('APP props', props)
 function App() {
   return (
     <Router>
     <div className="App">
+
       <Navbar>
         <NavbarBrand>Restaurant Passport</NavbarBrand>
         <div className='Links'>
@@ -19,15 +21,28 @@ function App() {
             <Link to='/register'>Register</Link>
             <Link to='/cities'>Cities</Link>
             <Link to='/cities/:id/restaurants'>Restaurants</Link>
-            <Link to='/resaurant/1'>Resties</Link>
+            <Link to='/resaurant/:id'>Resties</Link>
           </div>
       </Navbar>
+
         <Route path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/cities' component={Cities} />
-        <Route exact path='/cities/:id/restaurants' component={RestaurantList} />
-        <Route exact path='/restaurant/1' component={Restaurant} />
-        <Restaurant />
+        <Route 
+          exact 
+          path='cities/:id/restaurants' 
+          render={props => (
+            <RestaurantList
+            restaurants={props.restaurants} />
+          )}
+          />
+        {/* <Route exact path='/cities/:id/restaurants' 
+          render={props => (
+            <RestaurantList {...props} restaurants={this.props.renObjData} />
+          )}
+          /> */}
+        <Route exact path='/restaurant/:id' component={Restaurant} />
+        
       
     </div>
     </Router>
