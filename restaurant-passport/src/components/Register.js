@@ -71,7 +71,7 @@ class Register extends React.Component {
                     </Col>
                     </FormGroup>
 
-                <Button color='info' onClick={this.register}>Submit
+                <Button color='warning' onClick={this.register}>Submit
                     </Button>
                 </Form>
 

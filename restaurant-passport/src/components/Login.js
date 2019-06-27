@@ -58,7 +58,7 @@ class Login extends React.Component {
                     </Col>
                     </FormGroup>
 
-                <Button color='info' onClick={this.login}>Login
+                <Button color='warning' onClick={this.login}>Login
                     </Button>
                 </Form>
 

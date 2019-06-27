@@ -14,14 +14,14 @@ function App() {
     <Router>
     <div className="App">
 
-      <Navbar>
-        <NavbarBrand>Restaurant Passport</NavbarBrand>
+      <Navbar style = {{ backgroundColor: '#ffc107' }}>
+        <NavbarBrand style={{ color: 'black'}}>Restaurant Passport</NavbarBrand>
         <div className='Links'>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
-            <Link to='/cities'>Cities</Link>
-            <Link to='/cities/:id/restaurants'>Restaurants</Link>
-            <Link to='/resaurant/:id'>Resties</Link>
+            <Link style={{color: 'black'}}  to='/login'>Login</Link>
+            <Link style={{color: 'black'}} to='/register'>Register</Link>
+            <Link style={{color: 'black'}} to='/cities'>Cities</Link>
+            <Link style={{color: 'black'}} to='/cities/:id/restaurants'>Restaurants</Link>
+            <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link>
           </div>
       </Navbar>
 
