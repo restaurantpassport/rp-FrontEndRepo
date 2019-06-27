@@ -13,7 +13,12 @@ REGISTER_SUCCESS,
 REGISTER_FAILURE,
 FETCH_REST_BYID_START,
 FETCH_REST_BYID_SUCCESS,
-FETCH_REST_BYID_FAILURE } from '../actions';
+FETCH_REST_BYID_FAILURE,
+GET_USER_RESTAURANTS_START,
+GET_USER_RESTAURANTS_SUCCESS,
+GET_USER_RESTAURANTS_FAILURE,
+STAMP_RESTAURANT_START,
+STAMP_RESTAURANT_SUCCESS } from '../actions';
 
 const initialState = {
     registering: false,
@@ -25,7 +30,8 @@ const initialState = {
     fetchingData: false,
     restaurants: [],
     cityFromRestaurant: '',
-    restById: {}
+    restById: {},
+    stampedRestaurants: []
 }
 
 
@@ -123,6 +129,39 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
             }
+        case GET_USER_RESTAURANTS_START:
+            return {
+                ...state,
+                error: ''
+            };
+        case GET_USER_RESTAURANTS_SUCCESS:
+            return {
+                ...state,
+                userId: action.payload,
+                stampedRestaurants: action.payload
+            }
+        case GET_USER_RESTAURANTS_FAILURE:
+            return {
+                ...state,
+                error: action.payload
+            }
+        case STAMP_RESTAURANT_START:
+            return {
+                ...state,
+                error: ''
+            }
+        case STAMP_RESTAURANT_SUCCESS:
+            return {
+                ...state,
+                stampedRestaurants: action.payload,
+                error: ''
+            }
+        // case STAMP_RESTAURANT_FAILURE:
+        //     return {
+        //         ...state,
+        //         stampedRestaurants: [],
+        //         error: action.payload
+        //     }
         default:
             return state;
     }

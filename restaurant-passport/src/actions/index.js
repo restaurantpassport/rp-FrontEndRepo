@@ -100,3 +100,41 @@ export const getRestById = id => dispatch => {
             payload: err.response })
     })
 }
+
+export const GET_USER_RESTAURANTS_START = 'GET_USER_RESTAURANTS_START'
+export const GET_USER_RESTAURANTS_SUCCESS = 'GET_USER_RESTAURANTS_SUCCESS'
+export const GET_USER_RESTAURANTS_FAILURE = 'GET_USER_RESTAURANTS_FAILURE'
+
+export const getUserRestaurants = userID => dispatch => {
+    dispatch({ type: GET_USER_RESTAURANTS_START });
+    axios()
+    .get(`https://rp-backend-web19.herokuapp.com/manyToMany/${userID}`)
+    .then(res => {
+        console.log('user restaurants', res.data);
+        dispatch({ type: GET_USER_RESTAURANTS_SUCCESS, payload: res.data })
+    })
+    .catch(err => {
+        console.log(err.response);
+        dispatch({ type: GET_USER_RESTAURANTS_FAILURE,
+        payload: err.response })
+    })
+}
+
+export const STAMP_RESTAURANT_START = 'STAMP_RESTAURANT_START'
+export const STAMP_RESTAURANT_SUCCESS = 'STAMP_RESTAURANT_SUCCESS'
+export const STAMP_RESTAURANT_FAILURE = 'STAMP_RESTAURANT_FAILURE'
+
+export const stampRestaurant = restaurant => dispatch => {
+    dispatch({ type: STAMP_RESTAURANT_START });
+    axios()
+    .post(`https://rp-backend-web19.herokuapp.com/manyToMany`, restaurant)
+    .then(res => {
+        console.log('stamp passport', res.data);
+        dispatch({ type: STAMP_RESTAURANT_SUCCESS, payload: res.data })
+    })
+    .catch(err => {
+        console.log(err.response);
+        dispatch({ type: STAMP_RESTAURANT_FAILURE, 
+            payload: err.response })
+    })
+}

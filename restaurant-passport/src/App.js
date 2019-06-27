@@ -20,7 +20,6 @@ function App() {
             <Link style={{color: 'black'}}  to='/login'>Login</Link>
             <Link style={{color: 'black'}} to='/register'>Register</Link>
             <Link style={{color: 'black'}} to='/cities'>Cities</Link>
-            <Link style={{color: 'black'}} to='/cities/:id/restaurants'>Restaurants</Link>
             <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link>
           </div>
       </Navbar>
