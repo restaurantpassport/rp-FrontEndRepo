@@ -11,7 +11,7 @@ class Cities extends React.Component {
     };
 
 render() {
-    // console.log('cityID', this.props);
+    console.log('cityID', this.props.cities);
     return (
         <div>
             <h2>CITIES</h2>
@@ -23,8 +23,9 @@ render() {
             )} */}
             <div className='city-list-wrapper'>
                 {this.props.cities.map(city => (
+                    
                     <div className='city-list' key={city.id}>
-                    <Link style={{color: 'black'}} to={`/cities/${city.id}/restaurants`}>
+                    <Link style={{color: 'black'}} to={`/cities/1/restaurants`}>
                         <div key={city.id}>
                         <h2>{city.name}</h2>
                         </div>

@@ -1,7 +1,7 @@
 import { 
 LOGIN_START,
 LOGIN_SUCCESS,
-// LOGIN_FAILURE,
+LOGIN_FAILURE,
 FETCH_DATA_START,
 FETCH_DATA_SUCCESS,
 FETCH_DATA_FAILURE,
@@ -59,12 +59,12 @@ const reducer = (state = initialState, action) => {
                 token: action.payload,
                 userId: action.payload.userId
             };
-        // case LOGIN_FAILURE:
-        //     return {
-        //         ...state,
-        //         error: 'LOGIN FAILURE',
-        //         loggingIn: false
-        //     }
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                error: 'LOGIN FAILURE',
+                loggingIn: false
+            }
         case FETCH_DATA_START:
             return {
                 ...state,

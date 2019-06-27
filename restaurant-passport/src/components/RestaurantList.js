@@ -13,7 +13,7 @@ class RestaurantList extends React.Component {
 
 
 render() {
-    console.log('props', this.props)
+    console.log('getRest props', this.props)
 
     //  Map object to an array
     const renObjData = this.props.restaurants.map(function(data, idx) {
@@ -26,7 +26,7 @@ render() {
             <h1>{this.props.cityFromRestaurant}</h1>
 
 
-            {/* <Link to={`/cities/restaurants/${data.id}`}> */}
+            {/* <Link to={`/restaurants/${data.id}`}> */}
             <h2>{renObjData}</h2>
             {/* </Link> */}
             

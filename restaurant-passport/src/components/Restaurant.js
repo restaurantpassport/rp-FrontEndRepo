@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 
 import { getRestById } from '../actions';
@@ -23,7 +24,7 @@ render() {
             </div>
 
             <div className='restaurant-button'>
-            <button>Stamp my Portfolio</button>
+            <Button color='warning' >Stamp my Portfolio</Button>
             </div>
            
         </div>
