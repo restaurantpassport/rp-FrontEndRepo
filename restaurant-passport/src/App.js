@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import Login from './components/Login';
 import Cities from './components/Cities';
 import RestaurantList from './components/RestaurantList';
@@ -20,6 +20,7 @@ function App() {
             <Link style={{color: 'black'}}  to='/login'>Login</Link>
             <Link style={{color: 'black'}} to='/register'>Register</Link>
             <Link style={{color: 'black'}} to='/cities'>Cities</Link>
+            {/* <Link style={{color: 'black'}} to='/logout/'>Logout</Link> */}
             <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link>
           </div>
       </Navbar>
@@ -27,6 +28,13 @@ function App() {
         <Route path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
         <Route exact path='/cities' component={Cities} />
+        {/* <Route
+          path='logout'
+          render={props => {
+            localStorage.clear();
+            return <Redirect to ='/login' />;
+          }}
+          /> */}
         <Route 
           exact 
           path='/cities/:id/restaurants' 
@@ -36,7 +44,6 @@ function App() {
           )}
           />
         
-        {/* <Route exact path='/restaurant/:id' component={Restaurant} /> */}
         <Route
         exact
         path='/cities/restaurants/:id'
