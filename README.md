@@ -25,4 +25,4 @@ Who built this?
 Eric Fugleberg: https://github.com/efugleberg
 
 Where can I see more from this team?
-https://github.com/rp
+https://github.com/restaurantpassport
