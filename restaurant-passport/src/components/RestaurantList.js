@@ -27,7 +27,6 @@ render() {
                     <Link style={{color: 'black'}} to={`/cities/restaurants/${item.restID}`}>
                         <div key={item.restID}>
                         <h2>{item.restName}</h2>
-                        <h1>{item.restID}</h1>
                         </div>
                         </Link> 
                     </div>
