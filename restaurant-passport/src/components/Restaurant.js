@@ -4,10 +4,11 @@ import { withRouter } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 
-import { getRestById } from '../actions';
+import { getRestById } from '../actions/index';
 
 class Restaurant extends React.Component {
     componentDidMount() {
+        const {id} = this.props.params.match
         this.props.getRestById()
     };
 

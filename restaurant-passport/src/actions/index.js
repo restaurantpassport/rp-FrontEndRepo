@@ -66,10 +66,10 @@ export const FETCH_RESTAURANTS_START = 'FETCH_RESTAURANTS_START'
 export const FETCH_RESTAURANTS_SUCCESS = 'FETCH_RESTAURANTS_SUCCESS'
 export const FETCH_RESTAURANTS_FAILURE = 'FETCH_RESTAURANTS_FAILURE'
 
-export const getRestaurants = () => dispatch => {
+export const getRestaurants = id => dispatch => {
     dispatch({ type: FETCH_RESTAURANTS_START });
     axios()
-    .get(`https://rp-backend-web19.herokuapp.com/cities/1/restaurants`)
+    .get(`https://rp-backend-web19.herokuapp.com/cities/${id}/restaurants`)
     .then(res => {
         console.log('data', res.data);
         console.log('restaurants', res.data.restaurants);
@@ -86,10 +86,10 @@ export const FETCH_REST_BYID_START = 'FETCH_REST_BYID_START'
 export const FETCH_REST_BYID_SUCCESS = 'FETCH_REST_BYID_SUCCESS'
 export const FETCH_REST_BYID_FAILURE = 'FETCH_REST_BYID_FAILURE'
 
-export const getRestById = id => dispatch => {
+export const getRestById = () => dispatch => {
     dispatch({ type: FETCH_REST_BYID_START });
     axios()
-    .get(`https://rp-backend-web19.herokuapp.com/cities/restaurants/${id}`)
+    .get(`https://rp-backend-web19.herokuapp.com/cities/restaurants/1`)
     .then(res => {
         console.log('rest byId response', res.data);
         dispatch({ type: FETCH_REST_BYID_SUCCESS, payload: res.data })
@@ -97,6 +97,6 @@ export const getRestById = id => dispatch => {
     .catch(err => {
         console.log(err.response);
         dispatch({ type: FETCH_REST_BYID_FAILURE, 
-            payload: err.response.data.error })
+            payload: err.response })
     })
 }

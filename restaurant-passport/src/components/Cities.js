@@ -23,11 +23,11 @@ render() {
             )} */}
             <div className='city-list-wrapper'>
                 {this.props.cities.map(city => (
-                    
                     <div className='city-list' key={city.id}>
-                    <Link style={{color: 'black'}} to={`/cities/1/restaurants`}>
+                    <Link style={{color: 'black'}} to={`/cities/${city.id}/restaurants`}>
                         <div key={city.id}>
                         <h2>{city.name}</h2>
+                        <h2>{city.id}</h2>
                         </div>
                         </Link> 
                     </div>

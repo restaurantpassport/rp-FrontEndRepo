@@ -8,7 +8,8 @@ import { getRestaurants } from '../actions';
 
 class RestaurantList extends React.Component {
     componentDidMount() {
-        this.props.getRestaurants()
+        const {id} = this.props.match.params
+        this.props.getRestaurants(id)
     };
 
 
@@ -16,24 +17,30 @@ render() {
     console.log('getRest props', this.props)
 
     //  Map object to an array
-    const renObjData = this.props.restaurants.map(function(data, idx) {
-        return ([
-            <p key={idx}>{data.restName}</p>
-        ])
-    })
+    // const renObjData = this.props.restaurants.map(function(data, idx) {
+    //     return ([
+    //         <p key={idx}>{data.restName}</p>
+    //     ])
+    // })
+    // console.log(renObjData);
     return (
         <div>
             <h1>{this.props.cityFromRestaurant}</h1>
 
-
-            {/* <Link to={`/restaurants/${data.id}`}> */}
-            <h2>{renObjData}</h2>
-            {/* </Link> */}
-            
-        </div>
-    )
-}
-}
+            <div className='xy'>
+                {this.props.restaurants.map(item => (
+                    <div className='xyz'  key={item.restId}>
+                    <Link style={{color: 'black'}} to={`/restaurants/1`}>
+                        <div key={item.restId}>
+                        <h2>{item.restName}</h2>
+                        </div>
+                        </Link> 
+                    </div>
+                ))}
+            </div>
+            </div>
+            )
+}}
 
 
 const mapStateToProps = ({ error, restaurants, fetchingData, cityFromRestaurant }) => ({
