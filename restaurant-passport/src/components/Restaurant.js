@@ -19,7 +19,7 @@ class Restaurant extends React.Component {
         e.preventDefault();
         this.setState({ 
             ...this.state })
-        this.props.stampRestaurant(`'user_id': ${user_id}, 'restaurant_id': ${restaurant_id}`);
+        this.props.stampRestaurant(`"user_id": ${user_id}, "restaurant_id": ${restaurant_id}`);
     }
 
 
@@ -31,8 +31,8 @@ class Restaurant extends React.Component {
 
 render() {
     let userID = localStorage.getItem('userId');
-    console.log('RestID props', this.props.restById.id);
-    console.log('resties', userID);
+    console.log('RestID Number', this.props.restById.id);
+    console.log('User Id #', userID);
     return (
         <div className='restaurant-wrapper'>
 
@@ -43,8 +43,8 @@ render() {
             <p>{this.props.restById.description}</p>
             </div>
             <div className='restaurant-button'>
-            <Button onClick={this.stampRestaurant} color='warning' >Stamp my Portfolio</Button>
-            <h2>{userID}</h2>
+            <Button onClick={this.stampRestaurant} color='warning' >Stamp my Passport</Button>
+            {/* <h2>{userID}</h2> */}
             </div>
            
         </div>

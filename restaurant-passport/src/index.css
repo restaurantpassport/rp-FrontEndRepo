@@ -38,6 +38,16 @@ a {
   color: seagreen;
 }
 
+.cities-header{
+  font-size: 3rem; 
+  font-weight: 500; 
+  line-height: 64px; 
+  margin: 0 0 0; 
+  padding: 20px 30px; 
+  text-align: center; 
+  text-transform: uppercase;
+}
+
 .restaurant-wrapper {
   display: flex;
   flex-direction: row;
