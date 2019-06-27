@@ -36,15 +36,11 @@ function App() {
             restaurants={props.restaurants} />
           )}
           />
-        {/* <Route exact path='/cities/:id/restaurants' 
-          render={props => (
-            <RestaurantList {...props} restaurants={this.props.renObjData} />
-          )}
-          /> */}
+        
         {/* <Route exact path='/restaurant/:id' component={Restaurant} /> */}
         <Route
         exact
-        path='/restaurants/1'
+        path='/cities/restaurants/:id'
         component={Restaurant} />
       
     </div>

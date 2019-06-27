@@ -8,8 +8,8 @@ import { getRestById } from '../actions/index';
 
 class Restaurant extends React.Component {
     componentDidMount() {
-        // const {id} = this.props.params.match
-        this.props.getRestById()
+        const {id} = this.props.match.params
+        this.props.getRestById(id)
     };
 
 render() {

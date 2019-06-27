@@ -86,10 +86,10 @@ export const FETCH_REST_BYID_START = 'FETCH_REST_BYID_START'
 export const FETCH_REST_BYID_SUCCESS = 'FETCH_REST_BYID_SUCCESS'
 export const FETCH_REST_BYID_FAILURE = 'FETCH_REST_BYID_FAILURE'
 
-export const getRestById = () => dispatch => {
+export const getRestById = id => dispatch => {
     dispatch({ type: FETCH_REST_BYID_START });
     axios()
-    .get(`https://rp-backend-web19.herokuapp.com/cities/restaurants/1`)
+    .get(`https://rp-backend-web19.herokuapp.com/cities/restaurants/${id}`)
     .then(res => {
         console.log('rest byId response', res.data);
         dispatch({ type: FETCH_REST_BYID_SUCCESS, payload: res.data })

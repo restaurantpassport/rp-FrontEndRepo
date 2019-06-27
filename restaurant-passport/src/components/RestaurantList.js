@@ -23,10 +23,11 @@ render() {
 
             <div className='xy'>
                 {this.props.restaurants.map(item => (
-                    <div className='xyz'  key={item.restId}>
-                    <Link style={{color: 'black'}} to={`/restaurants/1`}>
-                        <div key={item.restId}>
+                    <div className='xyz'  id={item.restID} key={item.restID}>
+                    <Link style={{color: 'black'}} to={`/cities/restaurants/${item.restID}`}>
+                        <div key={item.restID}>
                         <h2>{item.restName}</h2>
+                        <h1>{item.restID}</h1>
                         </div>
                         </Link> 
                     </div>
