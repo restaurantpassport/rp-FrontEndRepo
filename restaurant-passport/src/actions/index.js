@@ -63,8 +63,8 @@ export const FETCH_RESTAURANTS_FAILURE = 'FETCH_RESTAURANTS_FAILURE'
 
 export const getRestaurants = () => dispatch => {
     dispatch({ type: FETCH_RESTAURANTS_START });
-    axios()
-    .get('https://rp-backend-web19.herokuapp.com/cities/:id/restaurants')
+    return axios()
+    .get('https://rp-backend-web19.herokuapp.com/cities/:id/restaurants/')
     .then(res => {
         console.log('data', res.data);
         console.log('restaurants', res.data.restaurants);
