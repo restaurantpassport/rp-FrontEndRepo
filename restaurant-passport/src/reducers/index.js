@@ -122,6 +122,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: '',
+                userId: localStorage.getItem('userId'),
                 restById: action.payload
             }
         case FETCH_REST_BYID_FAILURE:

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 
-import { getRestById, stampRestaurant } from '../actions/index';
+import { getRestById, stampRestaurant, getUserRestaurants } from '../actions/index';
 
 class Restaurant extends React.Component {
     componentDidMount() {
@@ -12,16 +12,27 @@ class Restaurant extends React.Component {
         this.props.getRestById(id)
     };
 
-    stampRestaurant = (e, restaurant) => {
+    stampRestaurant = e => {
+
+        let user_id = parseInt(localStorage.getItem('userId'));
+        let restaurant_id = parseInt(this.props.restById.id);
         e.preventDefault();
-        this.setState({ stampedRestaurants: restaurant })
-        this.props.stampRestaurant(restaurant);
+        this.setState({ 
+            ...this.state })
+        this.props.stampRestaurant(`'user_id': ${user_id}, 'restaurant_id': ${restaurant_id}`);
     }
 
 
+    // getUserRestaurants = e => {
+    //     e.preventDefault();
+    //     this.props.getUserRestaurants()
+    // }
+
 
 render() {
-    console.log('RestID props', this.props.restById);
+    let userID = localStorage.getItem('userId');
+    console.log('RestID props', this.props.restById.id);
+    console.log('resties', userID);
     return (
         <div className='restaurant-wrapper'>
 
@@ -31,9 +42,9 @@ render() {
             <h2>{this.props.restById.address}</h2>
             <p>{this.props.restById.description}</p>
             </div>
-
             <div className='restaurant-button'>
             <Button onClick={this.stampRestaurant} color='warning' >Stamp my Portfolio</Button>
+            <h2>{userID}</h2>
             </div>
            
         </div>
@@ -50,6 +61,6 @@ const mapStateToProps = ({ error, restById, stampedRestaurants }) => ({
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRestById, stampRestaurant }
+        { getRestById, stampRestaurant, getUserRestaurants }
     )(Restaurant)
 )
