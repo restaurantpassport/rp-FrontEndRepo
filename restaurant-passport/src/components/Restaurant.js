@@ -1,14 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 
-import { getRestById } from '../actions';
+import { getRestById, stampRestaurant } from '../actions/index';
 
 class Restaurant extends React.Component {
     componentDidMount() {
-        this.props.getRestById()
+        const {id} = this.props.match.params
+        this.props.getRestById(id)
     };
+
+    stampRestaurant = (e, restaurant) => {
+        e.preventDefault();
+        this.setState({ stampedRestaurants: restaurant })
+        this.props.stampRestaurant(restaurant);
+    }
+
+
 
 render() {
     console.log('RestID props', this.props.restById);
@@ -23,7 +33,7 @@ render() {
             </div>
 
             <div className='restaurant-button'>
-            <button>Stamp my Portfolio</button>
+            <Button onClick={this.stampRestaurant} color='warning' >Stamp my Portfolio</Button>
             </div>
            
         </div>
@@ -31,14 +41,15 @@ render() {
 }
 }
 
-const mapStateToProps = ({ error, restById }) => ({
+const mapStateToProps = ({ error, restById, stampedRestaurants }) => ({
     error,
-    restById
+    restById,
+    stampedRestaurants
 });
 
 export default withRouter(
     connect(
         mapStateToProps,
-        { getRestById }
+        { getRestById, stampRestaurant }
     )(Restaurant)
 )

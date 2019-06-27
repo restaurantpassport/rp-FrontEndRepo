@@ -16,12 +16,8 @@ to = "/register"
 [[redirects]]
 from = "/login"
 to = "/login"
-[[redirects]]
-from = "/cities"
-to = "/login"
-[[redirects]]
-from = "/restaurants"
-to = "/login"
+
+
     # must add the status code so that redirects will work. W
     status = 200
 
