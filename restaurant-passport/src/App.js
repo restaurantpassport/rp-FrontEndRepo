@@ -21,7 +21,7 @@ function App() {
             <Link style={{color: 'black'}} to='/register'>Register</Link>
             <Link style={{color: 'black'}} to='/cities'>Cities</Link>
             {/* <Link style={{color: 'black'}} to='/logout/'>Logout</Link> */}
-            <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link>
+            {/* <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link> */}
           </div>
       </Navbar>
 

@@ -14,7 +14,7 @@ render() {
     console.log('cityID', this.props.cities);
     return (
         <div>
-            <h2>CITIES</h2>
+            <h1 className='cities-header'>PASSPORT CITIES</h1>
             
             <div className='city-list-wrapper'>
                 {this.props.cities.map(city => (
