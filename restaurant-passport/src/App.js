@@ -41,8 +41,11 @@ function App() {
             <RestaurantList {...props} restaurants={this.props.renObjData} />
           )}
           /> */}
-        <Route exact path='/restaurant/:id' component={Restaurant} />
-        
+        {/* <Route exact path='/restaurant/:id' component={Restaurant} /> */}
+        <Route
+        exact
+        path='/restaurants/1'
+        component={Restaurant} />
       
     </div>
     </Router>

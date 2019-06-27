@@ -16,13 +16,7 @@ class RestaurantList extends React.Component {
 render() {
     console.log('getRest props', this.props)
 
-    //  Map object to an array
-    // const renObjData = this.props.restaurants.map(function(data, idx) {
-    //     return ([
-    //         <p key={idx}>{data.restName}</p>
-    //     ])
-    // })
-    // console.log(renObjData);
+   
     return (
         <div>
             <h1>{this.props.cityFromRestaurant}</h1>
