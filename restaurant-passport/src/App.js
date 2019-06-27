@@ -30,7 +30,7 @@ function App() {
         <Route exact path='/cities' component={Cities} />
         <Route 
           exact 
-          path='cities/:id/restaurants' 
+          path='/cities/:id/restaurants' 
           render={props => (
             <RestaurantList
             restaurants={props.restaurants} />
