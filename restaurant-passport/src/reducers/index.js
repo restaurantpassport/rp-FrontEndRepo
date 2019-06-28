@@ -141,7 +141,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 userId: action.payload,
                 stampedRestaurants: action.payload,
-                user_id: action.payload.user_id
+                user_id: localStorage.getItem('userId')
             }
         case GET_USER_RESTAURANTS_FAILURE:
             return {

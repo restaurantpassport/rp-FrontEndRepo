@@ -108,7 +108,7 @@ export const GET_USER_RESTAURANTS_FAILURE = 'GET_USER_RESTAURANTS_FAILURE'
 export const getUserRestaurants = () => dispatch => {
     dispatch({ type: GET_USER_RESTAURANTS_START });
     axios()
-    .get(`https://rp-backend-web19.herokuapp.com/manyToMany/1`)
+    .get(`https://rp-backend-web19.herokuapp.com/manyToMany/12`)
     .then(res => {
         console.log('user restaurants', res.data);
         dispatch({ type: GET_USER_RESTAURANTS_SUCCESS, payload: res.data })
