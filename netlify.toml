@@ -11,6 +11,8 @@
   # For use with react router. Keeps user from leaving index.html when
   # refreshing or pasting different routes into the browser.
 [[redirects]]
+from = "/"
+to = "login"
 from = "/signup"
 to = "/register"
 [[redirects]]
