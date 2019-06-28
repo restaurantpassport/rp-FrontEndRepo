@@ -13,6 +13,7 @@ class VisitedRestaurants extends React.Component {
 
 
 render() {    
+    console.log('visited rest props', this.props.user_id);
     // let loggedUser = localStorage.getItem('userId');
     // let mappedUser = this.props.stampedRestaurants.map(item => item.user_id)
     // let loggedUserID = mappedUser[0];

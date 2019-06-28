@@ -8,7 +8,8 @@ import Register from './components/Register';
 import Restaurant from './components/Restaurant';
 // import { getRestaurants } from './actions';
 import { Navbar, NavbarBrand } from 'reactstrap';
-import VisitedRestaurants from './components/VisitedRestaurants';
+// import VisitedRestaurants from './components/VisitedRestaurants';
+import Stamps from './components/Stamps';
 // console.log('APP props', props)
 function App() {
   return (
@@ -50,7 +51,7 @@ function App() {
         exact
         path='/cities/restaurants/:id'
         component={Restaurant} />
-        <Route exact path='/stamps' component={VisitedRestaurants} />
+        <Route exact path='/stamps' component={Stamps} />
       
     </div>
     </Router>
