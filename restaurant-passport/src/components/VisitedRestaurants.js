@@ -7,7 +7,8 @@ import { getUserRestaurants } from '../actions';
 
 class VisitedRestaurants extends React.Component {
     componentDidMount() {
-        this.props.getUserRestaurants()
+        const {id} = this.props.match.params
+        this.props.getUserRestaurants(id)
     };
 
 
@@ -25,12 +26,24 @@ render() {
     //     </div>
     // )) : 
     //     <h1>No Visited Restaurants</h1>
+    // let restID = this.props.stampedRestaurants.restID;
     
     console.log('city User ID', this.props.stampedRestaurants);
 
     return (
         <div>
             <h2>My Stamps</h2>
+            <div className='stamped-wrapper'>
+            {this.props.stampedRestaurants.map(city => (
+                  <div className='stamped-list' key={city.id}>
+                      <div key={city.id}>
+                      <h2>{city.name}</h2>
+                      </div>
+                      
+                  </div>
+              ))
+             }
+             </div>
             {/* <h1 className='user-restuarants-header'>Stamped</h1>
             
             <div className='rest-list-wrapper'>
