@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
+import VisitedRestaurants from './VisitedRestaurants';
 // import Restaurant from './Restaurant'
 // import { Spinner } from 'reactstrap';
 
@@ -33,14 +34,11 @@ render() {
                 ))}
             </div>
             <div>
-                <p>I've been here!!</p>
                 
+                <VisitedRestaurants />
+
             </div>
-
-
             </div>
-
-
             )
 }}
 

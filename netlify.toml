@@ -10,13 +10,11 @@
   # A basic redirect rule
   # For use with react router. Keeps user from leaving index.html when
   # refreshing or pasting different routes into the browser.
-[[redirects]]
-from = "/"
-to = "/login"
 
 [[redirects]]
 from = "/signup"
 to = "/register"
+
 [[redirects]]
 from = "/login"
 to = "/login"

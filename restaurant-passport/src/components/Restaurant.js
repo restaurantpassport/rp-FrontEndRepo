@@ -13,13 +13,12 @@ class Restaurant extends React.Component {
     };
 
     stampRestaurant = e => {
-
         let user_id = parseInt(localStorage.getItem('userId'));
         let restaurant_id = parseInt(this.props.restById.id);
         e.preventDefault();
         this.setState({ 
             ...this.state })
-        this.props.stampRestaurant(`"user_id": ${user_id}, "restaurant_id": ${restaurant_id}`);
+        this.props.stampRestaurant({user_id: user_id, restaurant_id: restaurant_id});
     }
 
 
