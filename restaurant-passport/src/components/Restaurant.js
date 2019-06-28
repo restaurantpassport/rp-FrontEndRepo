@@ -22,12 +22,6 @@ class Restaurant extends React.Component {
     }
 
 
-    // getUserRestaurants = e => {
-    //     e.preventDefault();
-    //     this.props.getUserRestaurants()
-    // }
-
-
 render() {
     let userID = localStorage.getItem('userId');
     console.log('RestID Number', this.props.restById.id);
@@ -43,9 +37,8 @@ render() {
             </div>
             <div className='restaurant-button'>
             <Button onClick={this.stampRestaurant} color='warning' >Stamp my Passport</Button>
-            {/* <h2>{userID}</h2> */}
+            
             </div>
-           
         </div>
     )
 }

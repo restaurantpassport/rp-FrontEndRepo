@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
-import VisitedRestaurants from './VisitedRestaurants';
+// import VisitedRestaurants from './VisitedRestaurants';
 // import Restaurant from './Restaurant'
 // import { Spinner } from 'reactstrap';
 
@@ -16,8 +16,6 @@ class RestaurantList extends React.Component {
 
 render() {
     console.log('getRest props', this.props)
-
-   
     return (
         <div>
             <h1>{this.props.cityFromRestaurant}</h1>
@@ -34,8 +32,8 @@ render() {
                 ))}
             </div>
             <div>
-                
-                <VisitedRestaurants />
+
+                {/* <VisitedRestaurants /> */}
 
             </div>
             </div>
