@@ -31,7 +31,8 @@ const initialState = {
     restaurants: [],
     cityFromRestaurant: '',
     restById: {},
-    stampedRestaurants: []
+    stampedRestaurants: [],
+    user_id: null
 }
 
 
@@ -139,7 +140,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 userId: action.payload,
-                stampedRestaurants: action.payload
+                stampedRestaurants: action.payload,
+                user_id: action.payload.user_id
             }
         case GET_USER_RESTAURANTS_FAILURE:
             return {
