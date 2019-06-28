@@ -12,7 +12,9 @@
   # refreshing or pasting different routes into the browser.
 [[redirects]]
 from = "/"
-to = "login"
+to = "/login"
+
+[[redirects]]
 from = "/signup"
 to = "/register"
 [[redirects]]
