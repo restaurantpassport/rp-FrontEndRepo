@@ -8,6 +8,7 @@ import Register from './components/Register';
 import Restaurant from './components/Restaurant';
 // import { getRestaurants } from './actions';
 import { Navbar, NavbarBrand } from 'reactstrap';
+import VisitedRestaurants from './components/VisitedRestaurants';
 // console.log('APP props', props)
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Link style={{color: 'black'}}  to='/login'>Login</Link>
             <Link style={{color: 'black'}} to='/register'>Register</Link>
             <Link style={{color: 'black'}} to='/cities'>Cities</Link>
+            <Link style={{color: 'black'}} to='/stamps'>My Stamps</Link>
             {/* <Link style={{color: 'black'}} to='/logout/'>Logout</Link> */}
             {/* <Link style={{color: 'black'}} to='/resaurant/:id'>Resties</Link> */}
           </div>
@@ -48,6 +50,7 @@ function App() {
         exact
         path='/cities/restaurants/:id'
         component={Restaurant} />
+        <Route exact path='/stamps' component={VisitedRestaurants} />
       
     </div>
     </Router>
